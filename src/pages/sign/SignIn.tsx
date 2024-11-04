@@ -24,15 +24,15 @@ const SignIn = () => {
   const onSubmit = async () => {
     try {
       setIsSpinner(true);
-      await user.signIn({
-        email: watchedId,
-        password: watchedPw,
-      });
+      // await user.signIn({
+      //   email: watchedId,
+      //   password: watchedPw,
+      // });
       setIsSpinner(false);
-      console.log("도달");
-      // navigate("/ticket");
-    } catch (e) {
-      toast(e.message);
+      navigate("/ticket");
+    } catch (e: unknown) {
+      const error = e as Error;
+      toast(error.message);
     }
   };
 
